@@ -37,12 +37,4 @@ public class ObjectFactory {
         return new Exercise();
     }
 
-    /**
-     * Create an instance of {@link Food }
-     * 
-     */
-    public Food createFood() {
-        return new Food();
-    }
-
 }

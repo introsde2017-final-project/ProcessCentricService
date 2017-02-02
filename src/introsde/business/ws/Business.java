@@ -3,12 +3,14 @@ package introsde.business.ws;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
 import javax.xml.ws.Holder;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
+import introsde.adapter.ws.Exercise;
 import introsde.localdatabase.soap.Measure;
 import introsde.localdatabase.soap.Person;
 
@@ -22,6 +24,7 @@ import introsde.localdatabase.soap.Person;
 @WebService(name = "Business", targetNamespace = "http://ws.business.introsde/")
 @XmlSeeAlso({
     introsde.localdatabase.soap.ObjectFactory.class,
+    introsde.adapter.ws.ObjectFactory.class,
     introsde.business.ws.ObjectFactory.class
 })
 public interface Business {
@@ -53,5 +56,23 @@ public interface Business {
         Long chatId,
         @WebParam(name = "measure", targetNamespace = "", mode = WebParam.Mode.INOUT)
         Holder<Measure> measure);
+
+    /**
+     * 
+     * @param chatId
+     * @param exercise
+     * @return
+     *     returns double
+     */
+    @WebMethod
+    @WebResult(name = "calories", targetNamespace = "")
+    @RequestWrapper(localName = "getCalories", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetCalories")
+    @ResponseWrapper(localName = "getCaloriesResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetCaloriesResponse")
+    @Action(input = "http://ws.business.introsde/Business/getCaloriesRequest", output = "http://ws.business.introsde/Business/getCaloriesResponse")
+    public double getCalories(
+        @WebParam(name = "chatId", targetNamespace = "")
+        Long chatId,
+        @WebParam(name = "exercise", targetNamespace = "")
+        Exercise exercise);
 
 }

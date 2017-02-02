@@ -25,8 +25,10 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _CreatePersonResponse_QNAME = new QName("http://ws.business.introsde/", "createPersonResponse");
+    private final static QName _GetCalories_QNAME = new QName("http://ws.business.introsde/", "getCalories");
     private final static QName _SavePersonMeasure_QNAME = new QName("http://ws.business.introsde/", "savePersonMeasure");
     private final static QName _SavePersonMeasureResponse_QNAME = new QName("http://ws.business.introsde/", "savePersonMeasureResponse");
+    private final static QName _GetCaloriesResponse_QNAME = new QName("http://ws.business.introsde/", "getCaloriesResponse");
     private final static QName _CreatePerson_QNAME = new QName("http://ws.business.introsde/", "createPerson");
 
     /**
@@ -42,6 +44,14 @@ public class ObjectFactory {
      */
     public CreatePersonResponse createCreatePersonResponse() {
         return new CreatePersonResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetCalories }
+     * 
+     */
+    public GetCalories createGetCalories() {
+        return new GetCalories();
     }
 
     /**
@@ -69,12 +79,29 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetCaloriesResponse }
+     * 
+     */
+    public GetCaloriesResponse createGetCaloriesResponse() {
+        return new GetCaloriesResponse();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CreatePersonResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "createPersonResponse")
     public JAXBElement<CreatePersonResponse> createCreatePersonResponse(CreatePersonResponse value) {
         return new JAXBElement<CreatePersonResponse>(_CreatePersonResponse_QNAME, CreatePersonResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCalories }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getCalories")
+    public JAXBElement<GetCalories> createGetCalories(GetCalories value) {
+        return new JAXBElement<GetCalories>(_GetCalories_QNAME, GetCalories.class, null, value);
     }
 
     /**
@@ -93,6 +120,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "savePersonMeasureResponse")
     public JAXBElement<SavePersonMeasureResponse> createSavePersonMeasureResponse(SavePersonMeasureResponse value) {
         return new JAXBElement<SavePersonMeasureResponse>(_SavePersonMeasureResponse_QNAME, SavePersonMeasureResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCaloriesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getCaloriesResponse")
+    public JAXBElement<GetCaloriesResponse> createGetCaloriesResponse(GetCaloriesResponse value) {
+        return new JAXBElement<GetCaloriesResponse>(_GetCaloriesResponse_QNAME, GetCaloriesResponse.class, null, value);
     }
 
     /**
