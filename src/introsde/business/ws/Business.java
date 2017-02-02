@@ -32,18 +32,6 @@ public interface Business {
 
     /**
      * 
-     * @param person
-     */
-    @WebMethod
-    @RequestWrapper(localName = "createPerson", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.CreatePerson")
-    @ResponseWrapper(localName = "createPersonResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.CreatePersonResponse")
-    @Action(input = "http://ws.business.introsde/Business/createPersonRequest", output = "http://ws.business.introsde/Business/createPersonResponse")
-    public void createPerson(
-        @WebParam(name = "person", targetNamespace = "", mode = WebParam.Mode.INOUT)
-        Holder<Person> person);
-
-    /**
-     * 
      * @param measure
      * @param chatId
      */
@@ -74,5 +62,44 @@ public interface Business {
         Long chatId,
         @WebParam(name = "exercise", targetNamespace = "")
         Exercise exercise);
+
+    /**
+     * 
+     * @param chatId
+     * @return
+     *     returns introsde.localdatabase.soap.Person
+     */
+    @WebMethod
+    @WebResult(name = "person", targetNamespace = "")
+    @RequestWrapper(localName = "getProfile", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetProfile")
+    @ResponseWrapper(localName = "getProfileResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetProfileResponse")
+    @Action(input = "http://ws.business.introsde/Business/getProfileRequest", output = "http://ws.business.introsde/Business/getProfileResponse")
+    public Person getProfile(
+        @WebParam(name = "chatId", targetNamespace = "")
+        Long chatId);
+
+    /**
+     * 
+     * @param person
+     */
+    @WebMethod
+    @RequestWrapper(localName = "updatePerson", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.UpdatePerson")
+    @ResponseWrapper(localName = "updatePersonResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.UpdatePersonResponse")
+    @Action(input = "http://ws.business.introsde/Business/updatePersonRequest", output = "http://ws.business.introsde/Business/updatePersonResponse")
+    public void updatePerson(
+        @WebParam(name = "person", targetNamespace = "", mode = WebParam.Mode.INOUT)
+        Holder<Person> person);
+
+    /**
+     * 
+     * @param person
+     */
+    @WebMethod
+    @RequestWrapper(localName = "createPerson", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.CreatePerson")
+    @ResponseWrapper(localName = "createPersonResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.CreatePersonResponse")
+    @Action(input = "http://ws.business.introsde/Business/createPersonRequest", output = "http://ws.business.introsde/Business/createPersonResponse")
+    public void createPerson(
+        @WebParam(name = "person", targetNamespace = "", mode = WebParam.Mode.INOUT)
+        Holder<Person> person);
 
 }

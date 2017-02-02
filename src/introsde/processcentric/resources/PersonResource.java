@@ -4,8 +4,11 @@ package introsde.processcentric.resources;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
@@ -59,6 +62,44 @@ public class PersonResource {
         	return Response.notModified().build();
         }
         return Response.ok().build(); 
+    }
+    
+    @GET
+    @Produces({ MediaType.APPLICATION_XML })
+    @Path("{chatId}")
+    public Response getProfile(@PathParam("chatId") Long chatId) {
+        System.out.println("--> Get Profile... ");
+        System.out.println("chatId " + chatId);
+
+        initializeBusiness();
+        
+        Person p = business.getProfile(chatId);
+        	
+        if (p == null) {
+        	return Response.notModified().build();
+        }
+        return Response.ok().entity(p).build(); 
+    }
+    
+    @POST
+    @Produces({ MediaType.APPLICATION_XML })
+    @Consumes({MediaType.APPLICATION_XML})
+    @Path("{chatId}")
+    public Response updatePerson(@PathParam("chatId") Long chatId, Person person) {
+        System.out.println("--> Updating Person... ");
+        System.out.println("chatId " + chatId);
+
+        initializeBusiness();
+        
+        person.setChatId(chatId);
+
+        Holder<Person> holder = new Holder<Person>(person);
+        business.updatePerson(holder);
+
+        if (holder.value == null) {
+        	return Response.notModified().build();
+        }
+        return Response.ok().entity(holder.value).build(); 
     }
 
 }

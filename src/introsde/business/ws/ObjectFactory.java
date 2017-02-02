@@ -24,12 +24,16 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _GetProfileResponse_QNAME = new QName("http://ws.business.introsde/", "getProfileResponse");
     private final static QName _CreatePersonResponse_QNAME = new QName("http://ws.business.introsde/", "createPersonResponse");
+    private final static QName _UpdatePersonResponse_QNAME = new QName("http://ws.business.introsde/", "updatePersonResponse");
     private final static QName _GetCalories_QNAME = new QName("http://ws.business.introsde/", "getCalories");
     private final static QName _SavePersonMeasure_QNAME = new QName("http://ws.business.introsde/", "savePersonMeasure");
     private final static QName _SavePersonMeasureResponse_QNAME = new QName("http://ws.business.introsde/", "savePersonMeasureResponse");
     private final static QName _GetCaloriesResponse_QNAME = new QName("http://ws.business.introsde/", "getCaloriesResponse");
     private final static QName _CreatePerson_QNAME = new QName("http://ws.business.introsde/", "createPerson");
+    private final static QName _GetProfile_QNAME = new QName("http://ws.business.introsde/", "getProfile");
+    private final static QName _UpdatePerson_QNAME = new QName("http://ws.business.introsde/", "updatePerson");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: introsde.business.ws
@@ -44,6 +48,22 @@ public class ObjectFactory {
      */
     public CreatePersonResponse createCreatePersonResponse() {
         return new CreatePersonResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdatePersonResponse }
+     * 
+     */
+    public UpdatePersonResponse createUpdatePersonResponse() {
+        return new UpdatePersonResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetProfileResponse }
+     * 
+     */
+    public GetProfileResponse createGetProfileResponse() {
+        return new GetProfileResponse();
     }
 
     /**
@@ -71,6 +91,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetProfile }
+     * 
+     */
+    public GetProfile createGetProfile() {
+        return new GetProfile();
+    }
+
+    /**
      * Create an instance of {@link CreatePerson }
      * 
      */
@@ -87,12 +115,38 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link UpdatePerson }
+     * 
+     */
+    public UpdatePerson createUpdatePerson() {
+        return new UpdatePerson();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetProfileResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getProfileResponse")
+    public JAXBElement<GetProfileResponse> createGetProfileResponse(GetProfileResponse value) {
+        return new JAXBElement<GetProfileResponse>(_GetProfileResponse_QNAME, GetProfileResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CreatePersonResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "createPersonResponse")
     public JAXBElement<CreatePersonResponse> createCreatePersonResponse(CreatePersonResponse value) {
         return new JAXBElement<CreatePersonResponse>(_CreatePersonResponse_QNAME, CreatePersonResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePersonResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "updatePersonResponse")
+    public JAXBElement<UpdatePersonResponse> createUpdatePersonResponse(UpdatePersonResponse value) {
+        return new JAXBElement<UpdatePersonResponse>(_UpdatePersonResponse_QNAME, UpdatePersonResponse.class, null, value);
     }
 
     /**
@@ -138,6 +192,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "createPerson")
     public JAXBElement<CreatePerson> createCreatePerson(CreatePerson value) {
         return new JAXBElement<CreatePerson>(_CreatePerson_QNAME, CreatePerson.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetProfile }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getProfile")
+    public JAXBElement<GetProfile> createGetProfile(GetProfile value) {
+        return new JAXBElement<GetProfile>(_GetProfile_QNAME, GetProfile.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePerson }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "updatePerson")
+    public JAXBElement<UpdatePerson> createUpdatePerson(UpdatePerson value) {
+        return new JAXBElement<UpdatePerson>(_UpdatePerson_QNAME, UpdatePerson.class, null, value);
     }
 
 }
