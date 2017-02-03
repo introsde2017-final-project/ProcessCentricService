@@ -8,16 +8,16 @@ import introsde.adapter.ws.Exercise;
 
 
 /**
- * <p>Classe Java per getCaloriesResponse complex type.
+ * <p>Classe Java per getExerciseResponse complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
  * 
  * <pre>
- * &lt;complexType name="getCaloriesResponse">
+ * &lt;complexType name="getExerciseResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="calories" type="{http://ws.adapter.introsde/}exercise" minOccurs="0"/>
+ *         &lt;element name="exercise" type="{http://ws.adapter.introsde/}exercise" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,35 +27,35 @@ import introsde.adapter.ws.Exercise;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getCaloriesResponse", propOrder = {
-    "calories"
+@XmlType(name = "getExerciseResponse", propOrder = {
+    "exercise"
 })
-public class GetCaloriesResponse {
+public class GetExerciseResponse {
 
-    protected Exercise calories;
+    protected Exercise exercise;
 
     /**
-     * Recupera il valore della proprietà calories.
+     * Recupera il valore della proprietà exercise.
      * 
      * @return
      *     possible object is
      *     {@link Exercise }
      *     
      */
-    public Exercise getCalories() {
-        return calories;
+    public Exercise getExercise() {
+        return exercise;
     }
 
     /**
-     * Imposta il valore della proprietà calories.
+     * Imposta il valore della proprietà exercise.
      * 
      * @param value
      *     allowed object is
      *     {@link Exercise }
      *     
      */
-    public void setCalories(Exercise value) {
-        this.calories = value;
+    public void setExercise(Exercise value) {
+        this.exercise = value;
     }
 
 }

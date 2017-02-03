@@ -27,11 +27,13 @@ public class ObjectFactory {
     private final static QName _GetProfileResponse_QNAME = new QName("http://ws.business.introsde/", "getProfileResponse");
     private final static QName _CreatePersonResponse_QNAME = new QName("http://ws.business.introsde/", "createPersonResponse");
     private final static QName _UpdatePersonResponse_QNAME = new QName("http://ws.business.introsde/", "updatePersonResponse");
+    private final static QName _GetExercise_QNAME = new QName("http://ws.business.introsde/", "getExercise");
     private final static QName _GetCalories_QNAME = new QName("http://ws.business.introsde/", "getCalories");
     private final static QName _SavePersonMeasure_QNAME = new QName("http://ws.business.introsde/", "savePersonMeasure");
     private final static QName _SavePersonMeasureResponse_QNAME = new QName("http://ws.business.introsde/", "savePersonMeasureResponse");
     private final static QName _GetCaloriesResponse_QNAME = new QName("http://ws.business.introsde/", "getCaloriesResponse");
     private final static QName _CreatePerson_QNAME = new QName("http://ws.business.introsde/", "createPerson");
+    private final static QName _GetExerciseResponse_QNAME = new QName("http://ws.business.introsde/", "getExerciseResponse");
     private final static QName _GetProfile_QNAME = new QName("http://ws.business.introsde/", "getProfile");
     private final static QName _UpdatePerson_QNAME = new QName("http://ws.business.introsde/", "updatePerson");
 
@@ -88,6 +90,22 @@ public class ObjectFactory {
      */
     public SavePersonMeasureResponse createSavePersonMeasureResponse() {
         return new SavePersonMeasureResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetExercise }
+     * 
+     */
+    public GetExercise createGetExercise() {
+        return new GetExercise();
+    }
+
+    /**
+     * Create an instance of {@link GetExerciseResponse }
+     * 
+     */
+    public GetExerciseResponse createGetExerciseResponse() {
+        return new GetExerciseResponse();
     }
 
     /**
@@ -150,6 +168,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetExercise }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getExercise")
+    public JAXBElement<GetExercise> createGetExercise(GetExercise value) {
+        return new JAXBElement<GetExercise>(_GetExercise_QNAME, GetExercise.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetCalories }{@code >}}
      * 
      */
@@ -192,6 +219,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "createPerson")
     public JAXBElement<CreatePerson> createCreatePerson(CreatePerson value) {
         return new JAXBElement<CreatePerson>(_CreatePerson_QNAME, CreatePerson.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetExerciseResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getExerciseResponse")
+    public JAXBElement<GetExerciseResponse> createGetExerciseResponse(GetExerciseResponse value) {
+        return new JAXBElement<GetExerciseResponse>(_GetExerciseResponse_QNAME, GetExerciseResponse.class, null, value);
     }
 
     /**

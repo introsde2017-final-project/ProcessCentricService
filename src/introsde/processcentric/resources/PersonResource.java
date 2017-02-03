@@ -76,7 +76,7 @@ public class PersonResource {
         initializeBusiness();
         
         Person p = business.getProfile(chatId);
-        	
+        
         if (p == null) {
         	return Response.noContent().build();
         }

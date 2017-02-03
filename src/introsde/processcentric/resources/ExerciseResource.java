@@ -1,8 +1,12 @@
 package introsde.processcentric.resources;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -12,10 +16,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import javax.xml.bind.JAXBElement;
+import javax.xml.namespace.QName;
 
 import introsde.adapter.ws.Exercise;
 import introsde.business.ws.Business;
 import introsde.business.ws.BusinessService;
+import introsde.localdatabase.soap.Person;
 import introsde.storage.ws.Storage;
 import introsde.storage.ws.StorageService;
 
@@ -55,12 +62,38 @@ public class ExerciseResource {
 
 		initializeBusiness();
 		
-		double ris = business.getCalories(chatId, exercise);
-		System.out.println(ris);
-		if (ris < 0) {
+		Exercise ris = business.getCalories(chatId, exercise);
+
+		if (ris.getCalories() < 0) {
 			return Response.serverError().build();
 		}
-		return Response.ok().build();
+		return Response.ok().entity(new JAXBElement<Exercise>(
+				new QName("exercise"), 
+				Exercise.class, 
+			    ris)).build();
+	}
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_XML })
+    @Path("{chatId}")
+	public Response getRandomExercise(@PathParam("chatId") Long chatId) {
+		System.out.println("--> Get exercise... ");
+		System.out.println("chatId " + chatId);
+
+		initializeBusiness();
+		
+		
+		
+		Exercise exercise = business.getExercise(chatId);
+		if (exercise==null){
+			return Response.serverError().build();
+		}
+		
+		
+		return Response.ok().entity(new JAXBElement<Exercise>(
+				new QName("exercise"),
+				Exercise.class,
+				exercise)).build();
 	}
 
 }

@@ -32,6 +32,18 @@ public interface Business {
 
     /**
      * 
+     * @param person
+     */
+    @WebMethod
+    @RequestWrapper(localName = "createPerson", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.CreatePerson")
+    @ResponseWrapper(localName = "createPersonResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.CreatePersonResponse")
+    @Action(input = "http://ws.business.introsde/Business/createPersonRequest", output = "http://ws.business.introsde/Business/createPersonResponse")
+    public void createPerson(
+        @WebParam(name = "person", targetNamespace = "", mode = WebParam.Mode.INOUT)
+        Holder<Person> person);
+
+    /**
+     * 
      * @param measure
      * @param chatId
      */
@@ -44,24 +56,6 @@ public interface Business {
         Long chatId,
         @WebParam(name = "measure", targetNamespace = "", mode = WebParam.Mode.INOUT)
         Holder<Measure> measure);
-
-    /**
-     * 
-     * @param chatId
-     * @param exercise
-     * @return
-     *     returns double
-     */
-    @WebMethod
-    @WebResult(name = "calories", targetNamespace = "")
-    @RequestWrapper(localName = "getCalories", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetCalories")
-    @ResponseWrapper(localName = "getCaloriesResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetCaloriesResponse")
-    @Action(input = "http://ws.business.introsde/Business/getCaloriesRequest", output = "http://ws.business.introsde/Business/getCaloriesResponse")
-    public double getCalories(
-        @WebParam(name = "chatId", targetNamespace = "")
-        Long chatId,
-        @WebParam(name = "exercise", targetNamespace = "")
-        Exercise exercise);
 
     /**
      * 
@@ -92,14 +86,35 @@ public interface Business {
 
     /**
      * 
-     * @param person
+     * @param chatId
+     * @param exercise
+     * @return
+     *     returns introsde.adapter.ws.Exercise
      */
     @WebMethod
-    @RequestWrapper(localName = "createPerson", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.CreatePerson")
-    @ResponseWrapper(localName = "createPersonResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.CreatePersonResponse")
-    @Action(input = "http://ws.business.introsde/Business/createPersonRequest", output = "http://ws.business.introsde/Business/createPersonResponse")
-    public void createPerson(
-        @WebParam(name = "person", targetNamespace = "", mode = WebParam.Mode.INOUT)
-        Holder<Person> person);
+    @WebResult(name = "calories", targetNamespace = "")
+    @RequestWrapper(localName = "getCalories", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetCalories")
+    @ResponseWrapper(localName = "getCaloriesResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetCaloriesResponse")
+    @Action(input = "http://ws.business.introsde/Business/getCaloriesRequest", output = "http://ws.business.introsde/Business/getCaloriesResponse")
+    public Exercise getCalories(
+        @WebParam(name = "chatId", targetNamespace = "")
+        Long chatId,
+        @WebParam(name = "exercise", targetNamespace = "")
+        Exercise exercise);
+
+    /**
+     * 
+     * @param chatId
+     * @return
+     *     returns introsde.adapter.ws.Exercise
+     */
+    @WebMethod
+    @WebResult(name = "exercise", targetNamespace = "")
+    @RequestWrapper(localName = "getExercise", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetExercise")
+    @ResponseWrapper(localName = "getExerciseResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetExerciseResponse")
+    @Action(input = "http://ws.business.introsde/Business/getExerciseRequest", output = "http://ws.business.introsde/Business/getExerciseResponse")
+    public Exercise getExercise(
+        @WebParam(name = "chatId", targetNamespace = "")
+        Long chatId);
 
 }
