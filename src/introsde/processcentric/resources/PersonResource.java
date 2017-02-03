@@ -14,6 +14,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import javax.xml.bind.JAXBElement;
+import javax.xml.namespace.QName;
 import javax.xml.ws.Holder;
 
 import introsde.business.ws.Business;
@@ -76,9 +78,12 @@ public class PersonResource {
         Person p = business.getProfile(chatId);
         	
         if (p == null) {
-        	return Response.notModified().build();
+        	return Response.noContent().build();
         }
-        return Response.ok().entity(p).build(); 
+        return Response.ok().entity(new JAXBElement<Person>(
+				new QName("person"), 
+			    Person.class, 
+			    p)).build(); 
     }
     
     @POST
@@ -97,9 +102,12 @@ public class PersonResource {
         business.updatePerson(holder);
 
         if (holder.value == null) {
-        	return Response.notModified().build();
+        	return Response.noContent().build();
         }
-        return Response.ok().entity(holder.value).build(); 
+        return Response.ok().entity(new JAXBElement<Person>(
+        				new QName("person"), 
+					    Person.class, 
+					    holder.value)).build(); 
     }
 
 }
