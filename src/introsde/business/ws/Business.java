@@ -1,6 +1,7 @@
 
 package introsde.business.ws;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -46,16 +47,19 @@ public interface Business {
      * 
      * @param measure
      * @param chatId
+     * @return
+     *     returns java.lang.String
      */
     @WebMethod
+    @WebResult(name = "measure", targetNamespace = "")
     @RequestWrapper(localName = "savePersonMeasure", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.SavePersonMeasure")
     @ResponseWrapper(localName = "savePersonMeasureResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.SavePersonMeasureResponse")
     @Action(input = "http://ws.business.introsde/Business/savePersonMeasureRequest", output = "http://ws.business.introsde/Business/savePersonMeasureResponse")
-    public void savePersonMeasure(
+    public String savePersonMeasure(
         @WebParam(name = "chatId", targetNamespace = "")
         Long chatId,
-        @WebParam(name = "measure", targetNamespace = "", mode = WebParam.Mode.INOUT)
-        Holder<Measure> measure);
+        @WebParam(name = "measure", targetNamespace = "")
+        Measure measure);
 
     /**
      * 
@@ -114,6 +118,21 @@ public interface Business {
     @ResponseWrapper(localName = "getExerciseResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetExerciseResponse")
     @Action(input = "http://ws.business.introsde/Business/getExerciseRequest", output = "http://ws.business.introsde/Business/getExerciseResponse")
     public Exercise getExercise(
+        @WebParam(name = "chatId", targetNamespace = "")
+        Long chatId);
+
+    /**
+     * 
+     * @param chatId
+     * @return
+     *     returns java.util.List<introsde.adapter.ws.Exercise>
+     */
+    @WebMethod
+    @WebResult(name = "exercises", targetNamespace = "")
+    @RequestWrapper(localName = "getTodayExercises", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetTodayExercises")
+    @ResponseWrapper(localName = "getTodayExercisesResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetTodayExercisesResponse")
+    @Action(input = "http://ws.business.introsde/Business/getTodayExercisesRequest", output = "http://ws.business.introsde/Business/getTodayExercisesResponse")
+    public List<Exercise> getTodayExercises(
         @WebParam(name = "chatId", targetNamespace = "")
         Long chatId);
 

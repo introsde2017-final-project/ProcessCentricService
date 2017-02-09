@@ -24,18 +24,20 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _UpdatePersonResponse_QNAME = new QName("http://ws.business.introsde/", "updatePersonResponse");
+    private final static QName _GetCalories_QNAME = new QName("http://ws.business.introsde/", "getCalories");
+    private final static QName _GetTodayExercises_QNAME = new QName("http://ws.business.introsde/", "getTodayExercises");
+    private final static QName _UpdatePerson_QNAME = new QName("http://ws.business.introsde/", "updatePerson");
     private final static QName _GetProfileResponse_QNAME = new QName("http://ws.business.introsde/", "getProfileResponse");
     private final static QName _CreatePersonResponse_QNAME = new QName("http://ws.business.introsde/", "createPersonResponse");
-    private final static QName _UpdatePersonResponse_QNAME = new QName("http://ws.business.introsde/", "updatePersonResponse");
     private final static QName _GetExercise_QNAME = new QName("http://ws.business.introsde/", "getExercise");
-    private final static QName _GetCalories_QNAME = new QName("http://ws.business.introsde/", "getCalories");
     private final static QName _SavePersonMeasure_QNAME = new QName("http://ws.business.introsde/", "savePersonMeasure");
     private final static QName _SavePersonMeasureResponse_QNAME = new QName("http://ws.business.introsde/", "savePersonMeasureResponse");
     private final static QName _GetCaloriesResponse_QNAME = new QName("http://ws.business.introsde/", "getCaloriesResponse");
     private final static QName _CreatePerson_QNAME = new QName("http://ws.business.introsde/", "createPerson");
     private final static QName _GetExerciseResponse_QNAME = new QName("http://ws.business.introsde/", "getExerciseResponse");
     private final static QName _GetProfile_QNAME = new QName("http://ws.business.introsde/", "getProfile");
-    private final static QName _UpdatePerson_QNAME = new QName("http://ws.business.introsde/", "updatePerson");
+    private final static QName _GetTodayExercisesResponse_QNAME = new QName("http://ws.business.introsde/", "getTodayExercisesResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: introsde.business.ws
@@ -53,27 +55,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdatePersonResponse }
-     * 
-     */
-    public UpdatePersonResponse createUpdatePersonResponse() {
-        return new UpdatePersonResponse();
-    }
-
-    /**
      * Create an instance of {@link GetProfileResponse }
      * 
      */
     public GetProfileResponse createGetProfileResponse() {
         return new GetProfileResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetCalories }
-     * 
-     */
-    public GetCalories createGetCalories() {
-        return new GetCalories();
     }
 
     /**
@@ -133,11 +119,79 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetTodayExercisesResponse }
+     * 
+     */
+    public GetTodayExercisesResponse createGetTodayExercisesResponse() {
+        return new GetTodayExercisesResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdatePersonResponse }
+     * 
+     */
+    public UpdatePersonResponse createUpdatePersonResponse() {
+        return new UpdatePersonResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetCalories }
+     * 
+     */
+    public GetCalories createGetCalories() {
+        return new GetCalories();
+    }
+
+    /**
+     * Create an instance of {@link GetTodayExercises }
+     * 
+     */
+    public GetTodayExercises createGetTodayExercises() {
+        return new GetTodayExercises();
+    }
+
+    /**
      * Create an instance of {@link UpdatePerson }
      * 
      */
     public UpdatePerson createUpdatePerson() {
         return new UpdatePerson();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePersonResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "updatePersonResponse")
+    public JAXBElement<UpdatePersonResponse> createUpdatePersonResponse(UpdatePersonResponse value) {
+        return new JAXBElement<UpdatePersonResponse>(_UpdatePersonResponse_QNAME, UpdatePersonResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCalories }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getCalories")
+    public JAXBElement<GetCalories> createGetCalories(GetCalories value) {
+        return new JAXBElement<GetCalories>(_GetCalories_QNAME, GetCalories.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetTodayExercises }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getTodayExercises")
+    public JAXBElement<GetTodayExercises> createGetTodayExercises(GetTodayExercises value) {
+        return new JAXBElement<GetTodayExercises>(_GetTodayExercises_QNAME, GetTodayExercises.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePerson }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "updatePerson")
+    public JAXBElement<UpdatePerson> createUpdatePerson(UpdatePerson value) {
+        return new JAXBElement<UpdatePerson>(_UpdatePerson_QNAME, UpdatePerson.class, null, value);
     }
 
     /**
@@ -159,30 +213,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePersonResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "updatePersonResponse")
-    public JAXBElement<UpdatePersonResponse> createUpdatePersonResponse(UpdatePersonResponse value) {
-        return new JAXBElement<UpdatePersonResponse>(_UpdatePersonResponse_QNAME, UpdatePersonResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetExercise }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getExercise")
     public JAXBElement<GetExercise> createGetExercise(GetExercise value) {
         return new JAXBElement<GetExercise>(_GetExercise_QNAME, GetExercise.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetCalories }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getCalories")
-    public JAXBElement<GetCalories> createGetCalories(GetCalories value) {
-        return new JAXBElement<GetCalories>(_GetCalories_QNAME, GetCalories.class, null, value);
     }
 
     /**
@@ -240,12 +276,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePerson }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetTodayExercisesResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "updatePerson")
-    public JAXBElement<UpdatePerson> createUpdatePerson(UpdatePerson value) {
-        return new JAXBElement<UpdatePerson>(_UpdatePerson_QNAME, UpdatePerson.class, null, value);
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "getTodayExercisesResponse")
+    public JAXBElement<GetTodayExercisesResponse> createGetTodayExercisesResponse(GetTodayExercisesResponse value) {
+        return new JAXBElement<GetTodayExercisesResponse>(_GetTodayExercisesResponse_QNAME, GetTodayExercisesResponse.class, null, value);
     }
 
 }

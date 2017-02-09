@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java per savePersonMeasureResponse complex type.
+ * <p>Classe Java per getTodayExercises complex type.
  * 
  * <p>Il seguente frammento di schema specifica il contenuto previsto contenuto in questa classe.
  * 
  * <pre>
- * &lt;complexType name="savePersonMeasureResponse">
+ * &lt;complexType name="getTodayExercises">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="measure" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="chatId" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "savePersonMeasureResponse", propOrder = {
-    "measure"
+@XmlType(name = "getTodayExercises", propOrder = {
+    "chatId"
 })
-public class SavePersonMeasureResponse {
+public class GetTodayExercises {
 
-    protected String measure;
+    protected Long chatId;
 
     /**
-     * Recupera il valore della proprietà measure.
+     * Recupera il valore della proprietà chatId.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public String getMeasure() {
-        return measure;
+    public Long getChatId() {
+        return chatId;
     }
 
     /**
-     * Imposta il valore della proprietà measure.
+     * Imposta il valore della proprietà chatId.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public void setMeasure(String value) {
-        this.measure = value;
+    public void setChatId(Long value) {
+        this.chatId = value;
     }
 
 }

@@ -55,12 +55,11 @@ public class MeasureResource {
 
 		initializeBusiness();
 		
-		Holder<Measure> holder = new Holder<>(measure);
-		business.savePersonMeasure(chatId, holder);
-		if (holder.value == null) {
+		String result = business.savePersonMeasure(chatId, measure);
+		if (result == null) {
 			return Response.serverError().build();
 		}
-		return Response.ok().build();
+		return Response.ok(result).build();
 	}
 
 }

@@ -1,8 +1,5 @@
 package introsde.processcentric.resources;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
@@ -22,7 +19,7 @@ import javax.xml.namespace.QName;
 import introsde.adapter.ws.Exercise;
 import introsde.business.ws.Business;
 import introsde.business.ws.BusinessService;
-import introsde.localdatabase.soap.Person;
+import introsde.processcentric.model.ExerciseList;
 import introsde.storage.ws.Storage;
 import introsde.storage.ws.StorageService;
 
@@ -86,7 +83,7 @@ public class ExerciseResource {
 		
 		Exercise exercise = business.getExercise(chatId);
 		if (exercise==null){
-			return Response.serverError().build();
+			return Response.noContent().build();
 		}
 		
 		
@@ -94,6 +91,26 @@ public class ExerciseResource {
 				new QName("exercise"),
 				Exercise.class,
 				exercise)).build();
+	}
+	
+	
+	@GET
+	@Produces({ MediaType.APPLICATION_XML })
+    @Path("{chatId}/today")
+	public Response getTodayExercises(@PathParam("chatId") Long chatId) {
+		System.out.println("--> Get today exercise... ");
+		System.out.println("chatId " + chatId);
+
+		initializeBusiness();
+		
+		ExerciseList exerciseList = new ExerciseList();
+		exerciseList.setExerciseList(business.getTodayExercises(chatId));
+		
+		if (exerciseList.getExerciseList() == null || exerciseList.getExerciseList().size() == 0) {
+        	return Response.noContent().build();
+        }
+
+        return Response.ok().entity(exerciseList).build(); 
 	}
 
 }
