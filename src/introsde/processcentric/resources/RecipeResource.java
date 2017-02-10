@@ -85,4 +85,22 @@ public class RecipeResource {
 			    Recipe.class, 
 			    recipe)).build(); 
     }
+    
+    
+    @GET
+    @Produces({ MediaType.APPLICATION_XML })
+    @Path("{recipeId}/{chatId}")
+    public Response getSentenceRecipeCalories(@PathParam("recipeId") Integer recipeId, @PathParam("chatId") Long chatId) {
+        System.out.println("--> Get Recipe sentence... ");
+
+        initializeBusiness();
+        
+        String sentence = business.getSentenceRecipeCalories(chatId, recipeId);
+
+        if (sentence == null) {
+        	return Response.noContent().build();
+        }
+
+        return Response.ok().entity(sentence).build(); 
+    }
 }
