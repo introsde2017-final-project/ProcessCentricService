@@ -108,6 +108,21 @@ public interface Business {
 
     /**
      * 
+     * @param hours
+     * @param chatId
+     */
+    @WebMethod
+    @RequestWrapper(localName = "setSleepTime", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.SetSleepTime")
+    @ResponseWrapper(localName = "setSleepTimeResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.SetSleepTimeResponse")
+    @Action(input = "http://ws.business.introsde/Business/setSleepTimeRequest", output = "http://ws.business.introsde/Business/setSleepTimeResponse")
+    public void setSleepTime(
+        @WebParam(name = "chatId", targetNamespace = "")
+        Long chatId,
+        @WebParam(name = "hours", targetNamespace = "")
+        double hours);
+
+    /**
+     * 
      * @param chatId
      * @return
      *     returns introsde.adapter.ws.Exercise

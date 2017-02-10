@@ -25,9 +25,11 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _UpdatePersonResponse_QNAME = new QName("http://ws.business.introsde/", "updatePersonResponse");
+    private final static QName _SetSleepTimeResponse_QNAME = new QName("http://ws.business.introsde/", "setSleepTimeResponse");
     private final static QName _GetCalories_QNAME = new QName("http://ws.business.introsde/", "getCalories");
     private final static QName _GetTodayExercises_QNAME = new QName("http://ws.business.introsde/", "getTodayExercises");
     private final static QName _UpdatePerson_QNAME = new QName("http://ws.business.introsde/", "updatePerson");
+    private final static QName _SetSleepTime_QNAME = new QName("http://ws.business.introsde/", "setSleepTime");
     private final static QName _GetProfileResponse_QNAME = new QName("http://ws.business.introsde/", "getProfileResponse");
     private final static QName _CreatePersonResponse_QNAME = new QName("http://ws.business.introsde/", "createPersonResponse");
     private final static QName _GetExercise_QNAME = new QName("http://ws.business.introsde/", "getExercise");
@@ -143,11 +145,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SetSleepTimeResponse }
+     * 
+     */
+    public SetSleepTimeResponse createSetSleepTimeResponse() {
+        return new SetSleepTimeResponse();
+    }
+
+    /**
      * Create an instance of {@link GetTodayExercises }
      * 
      */
     public GetTodayExercises createGetTodayExercises() {
         return new GetTodayExercises();
+    }
+
+    /**
+     * Create an instance of {@link SetSleepTime }
+     * 
+     */
+    public SetSleepTime createSetSleepTime() {
+        return new SetSleepTime();
     }
 
     /**
@@ -165,6 +183,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "updatePersonResponse")
     public JAXBElement<UpdatePersonResponse> createUpdatePersonResponse(UpdatePersonResponse value) {
         return new JAXBElement<UpdatePersonResponse>(_UpdatePersonResponse_QNAME, UpdatePersonResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetSleepTimeResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "setSleepTimeResponse")
+    public JAXBElement<SetSleepTimeResponse> createSetSleepTimeResponse(SetSleepTimeResponse value) {
+        return new JAXBElement<SetSleepTimeResponse>(_SetSleepTimeResponse_QNAME, SetSleepTimeResponse.class, null, value);
     }
 
     /**
@@ -192,6 +219,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "updatePerson")
     public JAXBElement<UpdatePerson> createUpdatePerson(UpdatePerson value) {
         return new JAXBElement<UpdatePerson>(_UpdatePerson_QNAME, UpdatePerson.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SetSleepTime }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.business.introsde/", name = "setSleepTime")
+    public JAXBElement<SetSleepTime> createSetSleepTime(SetSleepTime value) {
+        return new JAXBElement<SetSleepTime>(_SetSleepTime_QNAME, SetSleepTime.class, null, value);
     }
 
     /**
