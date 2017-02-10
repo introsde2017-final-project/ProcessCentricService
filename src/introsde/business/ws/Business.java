@@ -45,6 +45,21 @@ public interface Business {
 
     /**
      * 
+     * @param chatId
+     * @return
+     *     returns introsde.localdatabase.soap.Person
+     */
+    @WebMethod
+    @WebResult(name = "person", targetNamespace = "")
+    @RequestWrapper(localName = "getProfile", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetProfile")
+    @ResponseWrapper(localName = "getProfileResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetProfileResponse")
+    @Action(input = "http://ws.business.introsde/Business/getProfileRequest", output = "http://ws.business.introsde/Business/getProfileResponse")
+    public Person getProfile(
+        @WebParam(name = "chatId", targetNamespace = "")
+        Long chatId);
+
+    /**
+     * 
      * @param measure
      * @param chatId
      * @return
@@ -60,21 +75,6 @@ public interface Business {
         Long chatId,
         @WebParam(name = "measure", targetNamespace = "")
         Measure measure);
-
-    /**
-     * 
-     * @param chatId
-     * @return
-     *     returns introsde.localdatabase.soap.Person
-     */
-    @WebMethod
-    @WebResult(name = "person", targetNamespace = "")
-    @RequestWrapper(localName = "getProfile", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetProfile")
-    @ResponseWrapper(localName = "getProfileResponse", targetNamespace = "http://ws.business.introsde/", className = "introsde.business.ws.GetProfileResponse")
-    @Action(input = "http://ws.business.introsde/Business/getProfileRequest", output = "http://ws.business.introsde/Business/getProfileResponse")
-    public Person getProfile(
-        @WebParam(name = "chatId", targetNamespace = "")
-        Long chatId);
 
     /**
      * 
