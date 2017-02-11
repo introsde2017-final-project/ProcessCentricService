@@ -117,16 +117,21 @@ public class ExerciseResource {
 
 	@PUT
     @Produces({ MediaType.APPLICATION_XML })
-    @Consumes({MediaType.APPLICATION_XML})
+    @Consumes({MediaType.TEXT_PLAIN})
     @Path("{chatId}/timesleep")
-    public Response updateTimeSleep(@PathParam("chatId") Long chatId, @QueryParam("hours") double hours) {
+    public Response updateTimeSleep(@PathParam("chatId") Long chatId, String hours) {
         System.out.println("--> Updating time sleeping... ");
         System.out.println("chatId " + chatId + " hours = "+hours);
-
-        initializeBusiness();
         
-        business.setSleepTime(chatId, hours);
+        try {
+        	Double time = Double.parseDouble(hours);
+        	initializeBusiness();
+        	business.setSleepTime(chatId, time);
+        	return Response.ok().build(); 
+        	
+        } catch (NumberFormatException e) {
+        	return Response.serverError().build();
+        }
         
-        return Response.ok().build(); 
     }
 }
