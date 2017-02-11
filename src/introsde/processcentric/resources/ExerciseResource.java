@@ -116,7 +116,6 @@ public class ExerciseResource {
 	}
 
 	@PUT
-    @Produces({ MediaType.APPLICATION_XML })
     @Consumes({MediaType.TEXT_PLAIN})
     @Path("{chatId}/timesleep")
     public Response updateTimeSleep(@PathParam("chatId") Long chatId, String hours) {
